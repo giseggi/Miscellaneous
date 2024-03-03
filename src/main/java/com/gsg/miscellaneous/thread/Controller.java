@@ -20,8 +20,6 @@ public class Controller {
 
     private final ThreadExample threadExample;
 
-    private final ExecutorService executorService = Executors.newFixedThreadPool(10); // 쓰레드 풀 생성 (최대 10개의 스레드를 가짐)
-
     @PostMapping("/withoutThread")
     public String exampleWithoutThread(@RequestParam List<String> params) throws IOException {
         StopWatch stopWatch = new StopWatch();
@@ -37,6 +35,7 @@ public class Controller {
 
     @PostMapping("/withThread")
     public String exampleWithThread(@RequestParam List<String> params) throws IOException {
+        ExecutorService executorService = Executors.newFixedThreadPool(10); // 쓰레드 풀 생성 (최대 10개의 스레드를 가짐)
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
@@ -51,16 +50,13 @@ public class Controller {
                 log.info(param + " 작업 완료");
             }); // 쓰레드 풀에서 실행될 작업을 제출
         }
-
-        stopWatch.stop();
-        log.info("총 소요 시간: " + stopWatch.getTotalTimeMillis() + "ms");
-
         // 모든 작업이 완료될 때까지 대기
         executorService.shutdown(); // 쓰레드 풀 종료
         while (!executorService.isTerminated()) {
             // 대기
         }
-
+        stopWatch.stop();
+        log.info("총 소요 시간: " + stopWatch.getTotalTimeMillis() + "ms");
         return "finished :)";
     }
 }
