@@ -1,0 +1,5 @@
+naverapi:
+  client-id: ${CLIENT_ID}
+  client-secret: ${CLIENT_SECRET}
+  base-url:
+    search: https://openapi.naver.com/v1/search/blog.json

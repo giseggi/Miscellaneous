@@ -1,4 +1,7 @@
 spring:
+  config:
+    import:
+      - application-api.yaml
   graphql:
     graphiql:
       enabled: true
