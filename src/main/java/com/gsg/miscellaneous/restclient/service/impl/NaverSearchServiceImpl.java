@@ -1,5 +1,6 @@
 package com.gsg.miscellaneous.restclient.service.impl;
 
+import com.gsg.miscellaneous.restclient.entity.SearchResponse;
 import com.gsg.miscellaneous.restclient.service.NaverSearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +16,9 @@ public class NaverSearchServiceImpl implements NaverSearchService {
     private final RestClient restClient;
 
     @Override
-    public String callNaverSearchApi(String query, Integer display, Integer start, String sort) {
+    public ResponseEntity<SearchResponse> callNaverSearchApi(String query, Integer display, Integer start, String sort) {
         return restClient.get()
                 .uri(uriBuilder -> uriBuilder.queryParam("query", query).build())
-                .retrieve().toEntity(String.class).toString();
+                .retrieve().toEntity(SearchResponse.class);
     }
 }

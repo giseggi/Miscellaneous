@@ -1,10 +1,11 @@
 package com.gsg.miscellaneous.restclient.service;
 
+import com.gsg.miscellaneous.restclient.entity.SearchResponse;
 import org.springframework.http.ResponseEntity;
 
 import java.util.*;
 
 public interface NaverSearchService {
 
-    String callNaverSearchApi(String query, Integer display, Integer start, String sort);
+    ResponseEntity<SearchResponse> callNaverSearchApi(String query, Integer display, Integer start, String sort);
 }
