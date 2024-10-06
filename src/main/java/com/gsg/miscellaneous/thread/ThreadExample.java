@@ -64,6 +64,7 @@ public class ThreadExample {
             URL url = new URL(apiUrl);
             System.out.println("feature test");
             System.out.println("feature test2");
+            System.out.println("feature test3");
             return (HttpURLConnection)url.openConnection();
         } catch (MalformedURLException e) {
             throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
