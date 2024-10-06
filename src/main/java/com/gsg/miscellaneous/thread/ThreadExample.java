@@ -60,18 +60,20 @@ public class ThreadExample {
     }
 
     private static HttpURLConnection connect(String apiUrl){
-        try {
-            URL url = new URL(apiUrl);
-            return (HttpURLConnection)url.openConnection();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
-        } catch (IOException e) {
-            throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
-        } catch(Exception e) {
-            System.out.println("test-a");
-            // for test -a
-            throw new RuntimeException("test-a");
-        }
+//        try {
+//            URL url = new URL(apiUrl);
+//            return (HttpURLConnection)url.openConnection();
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
+//        } catch (IOException e) {
+//            throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
+//        } catch(Exception e) {
+//            System.out.println("test-a-b");
+//            // for test -a-b
+//            throw new ArithmeticException("test-a-b");
+//        }
+        System.out.println("Invalid Method");
+        return null;
     }
 
     private static String readBody(InputStream body){
