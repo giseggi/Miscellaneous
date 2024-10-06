@@ -68,8 +68,8 @@ public class ThreadExample {
         } catch (IOException e) {
             throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
         } catch(Exception e) {
-            // for test -a
-            throw new RuntimeException(e);
+            // for test -a-b another Exception
+            throw new ArithmeticException("test-a-b");
         }
     }
 
