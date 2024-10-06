@@ -67,6 +67,9 @@ public class ThreadExample {
             throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
         } catch (IOException e) {
             throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
+        } catch(Exception e) {
+            // for test -a
+            throw new RuntimeException(e);
         }
     }
 
